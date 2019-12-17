@@ -19,4 +19,4 @@ const Gallery = ({ children }) => {
        </div>);
 };
 
-export default Gallery;
+export default React.memo(Gallery);
