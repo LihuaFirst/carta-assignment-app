@@ -1,0 +1,20 @@
+
+.header {
+   width: 100%;
+   align-self: baseline;
+   background-color: #fff;
+   border-bottom: 1px solid #dae0e4;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .header-wrapper {
+   width: 100%;
+   max-width: 1024px;
+   margin: auto;    
+   display: flex;
+   align-items: center;
+ }
+ 
+.header-logo {
+   width: 64px;
+}

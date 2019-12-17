@@ -10,8 +10,8 @@ This project is to build a web application that shows nearby places of interest.
 - The page will reload if you make changes, or see any errors in the console
 
 ## Features
-- Search NASA images
-- See image details 
+- Search a list of places by location
+- See location details 
 
 ## Stack
 - Framework: React 16
