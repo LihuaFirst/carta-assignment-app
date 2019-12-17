@@ -6,6 +6,7 @@ import HeaderBar from '../../components/HeaderBar/HeaderBar';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import Gallery from '../../components/Gallery/Gallery';
 import styles from './Search.module.css';
+import { debounce } from 'lodash';
 
 class Search extends React.Component {
    constructor(props) {
@@ -24,7 +25,7 @@ class Search extends React.Component {
       this.searchAsset(this.state.query);
    }
 
-   searchAsset(query) {
+   searchAsset = debounce((query) => {
       this.setState({ isLoading: true });
 
       axios.get(`${FOURSQUARE_API_URL}&v=20191201&limit=10&query=coffee&near=${query}`)
@@ -36,7 +37,7 @@ class Search extends React.Component {
          .catch(error => {
             this.setState({ isLoading: false });
          })
-   }
+   }, 500);
 
    onSearchChanged(query) {
       this.setState({ query });
