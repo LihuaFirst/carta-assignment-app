@@ -13,10 +13,9 @@ const getCategoryIcon = (item) => {
 const normalizeItem = (item) => ({
    id: item.id,
    name: item.name,
-  //  phone: item.location.contact.phone,
-  address: getFormattedAddress(item),
-  category: item.categories[0].name,
-  category_icon: getCategoryIcon(item)
+   address: getFormattedAddress(item),
+   category: item.categories[0].name,
+   category_icon: getCategoryIcon(item)
 });
 
 const normalize = {

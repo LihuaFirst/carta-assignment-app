@@ -1,26 +1,39 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 import styles from './GalleryItem.module.css';
 
-const GalleryItem = (props) => (
-   <div className={styles['galleryItem']}>
-      <Link className={styles['galleryItem-wrapper']} to={`/asset/${props.id}`} title={props.name}>
-         {props.name && <p className={styles['galleryItem-title']}>{props.name}</p>}
-         {/* {props.address && <p>{props.address}</p>} */}
-         <div className={styles['galleryItem-image-wrapper']}>
-            <LazyLoad height={50} once>
-               <img src={props.category_icon}
-                  alt={props.category}
-                  title={props.title}
-                  className={styles['galleryItem-image']}
-               />
-            </LazyLoad>
-         </div>
-      </Link>
-   </div >
-);
+class GalleryItem extends React.Component {
+   constructor(props) {
+      super(props);
+      this.handleOpenModal = this.handleOpenModal.bind(this);
+   }
 
+   handleOpenModal = (id) => {
+      //console.log('Selected: ' + id);
+      this.props.onOpenModal(id);
+   }
+
+   render() {
+      const { id, name, category, category_icon } = this.props;
+
+      return (
+         <div className={styles['galleryItem']}>
+            <a href="/#" onClick={() => this.props.onOpenModal(id)} className={styles['galleryItem-wrapper']} title={name}>
+               {name && <p className={styles['galleryItem-title']}>{name}</p>}
+               <div className={styles['galleryItem-image-wrapper']}>
+                  <LazyLoad height={50} once>
+                     <img src={category_icon}
+                        alt={category}
+                        title={category}
+                        className={styles['galleryItem-image']}
+                     />
+                  </LazyLoad>
+               </div>
+            </a>
+         </div >
+      );
+   }
+}
 export default GalleryItem;
 
 

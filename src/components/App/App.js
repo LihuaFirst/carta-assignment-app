@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Search from '../../pages/Search/Search';
+import Home from '../../pages/Home/Home';
 import FooterContainer from '../Footer/footer';
 import styles from './App.module.css';
 
@@ -10,7 +10,7 @@ class App extends React.Component {
       <Router>
         <div className={styles['App']}>
           <main className={styles['App-content']}>
-            <Route exact path="/" component={Search} />
+            <Route exact path="/" component={Home} />
           </main>
           <FooterContainer />
         </div>
