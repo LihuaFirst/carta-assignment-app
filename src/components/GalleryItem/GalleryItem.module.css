@@ -38,8 +38,8 @@
 .galleryItem-image-wrapper {
   display: block;
   margin: 1rem;  
-  background: #026aa7;
-  background-image: url('../../assets/loader.svg');
+  background-color: #026aa7;
+  /* background-image: url('../../assets/loader.svg'); */
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 10px

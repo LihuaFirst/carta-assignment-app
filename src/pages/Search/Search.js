@@ -14,7 +14,7 @@ class Search extends React.Component {
       super(props);
 
       this.state = {
-         location: 'Palo Alto',
+         location: 'New York',
          query: 'Restaurant',
          assets: [],
          isLoading: true

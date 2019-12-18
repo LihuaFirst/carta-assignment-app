@@ -7,7 +7,7 @@ const GalleryItem = (props) => (
    <div className={styles['galleryItem']}>
       <Link className={styles['galleryItem-wrapper']} to={`/asset/${props.id}`} title={props.name}>
          {props.name && <p className={styles['galleryItem-title']}>{props.name}</p>}
-         {props.address && <p>{props.address}</p>}
+         {/* {props.address && <p>{props.address}</p>} */}
          <div className={styles['galleryItem-image-wrapper']}>
             <LazyLoad height={50} once>
                <img src={props.category_icon}
