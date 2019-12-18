@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { FOURSQUARE_API_URL } from '../../services/api/foursqure_api.js';
 import normalize from '../../services/normalize/normalize';
+import formatDate from '../../services/date/date_formats.js';
 import HeaderBar from '../../components/HeaderBar/HeaderBar';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import Gallery from '../../components/Gallery/Gallery';
@@ -13,22 +14,30 @@ class Search extends React.Component {
       super(props);
 
       this.state = {
-         query: 'Waterloo ON',
+         location: 'Palo Alto',
+         query: 'coffee',
          assets: [],
          isLoading: true
       };
-      this.onSearchChanged = this.onSearchChanged.bind(this);
+      this.onSearchCityChanged = this.onSearchCityChanged.bind(this);
+      this.onSearchQueryChanged = this.onSearchQueryChanged.bind(this);
    }
 
    componentDidMount() {
       //console.log(this.state);
-      this.searchAsset(this.state.query);
+      this.searchAsset(this.state.location, this.state.query);
    }
 
-   searchAsset = debounce((query) => {
+   searchAsset = debounce((location, query) => {
       this.setState({ isLoading: true });
 
-      axios.get(`${FOURSQUARE_API_URL}&v=20191201&limit=10&query=coffee&near=${query}`)
+      const version = formatDate.yyyymmdd(new Date());
+
+      const limit = 50;
+
+      const query_param = (query) ? '&query='+query :'';
+      
+      axios.get(`${FOURSQUARE_API_URL}&v=${version}&limit=${limit}&near=${location}${query_param}`)
          .then(response => {
             //console.log(response);           
             this.setState({ isLoading: false });
@@ -39,13 +48,18 @@ class Search extends React.Component {
          })
    }, 500);
 
-   onSearchChanged(query) {
+   onSearchCityChanged(location) {
+      this.setState({ location });
+      this.searchAsset(location, this.state.query);
+   }
+
+   onSearchQueryChanged(query) {
       this.setState({ query });
-      this.searchAsset(query);
+      this.searchAsset(this.state.location, query);
    }
 
    render() {
-      const { query, assets, isLoading } = this.state;
+      const { location, query, assets, isLoading } = this.state;
 
       const displayContent = () => {
          if (isLoading) {
@@ -73,7 +87,11 @@ class Search extends React.Component {
          <div className={styles['search-wrapper']}>
             <div className={styles['search-header']}>
                <HeaderBar>
-                  <SearchBox query={query} onSearchChanged={this.onSearchChanged} />
+                  <SearchBox location={location} 
+                           query={query}
+                           onSearchCityChanged={this.onSearchCityChanged}
+                           onSearchQueryChanged = {this.onSearchQueryChanged}
+                            />
                </HeaderBar>
             </div>
             <div className={styles['search-content']}>

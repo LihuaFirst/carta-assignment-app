@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LazyLoad from 'react-lazyload';
+// import LazyLoad from 'react-lazyload';
 import styles from './GalleryItem.module.css';
 
 const GalleryItem = (props) => (

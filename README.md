@@ -24,6 +24,6 @@ This project is to build a web application that shows nearby places of interest.
 
  ## To Do
 - Use location services to detect current location
-- Make the web app responsive
+- ~~ Make the web app responsive ~~
 - Paginate the results of your search
 - Make the web app hosted and publically accessible

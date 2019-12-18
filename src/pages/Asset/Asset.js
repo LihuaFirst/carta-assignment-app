@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderBar from '../../components/HeaderBar/HeaderBar';
 
 import axios from 'axios';
-import { NASA_API_URL } from '../../services/api/nasa_api';
+import { FOURSQUARE_API_URL } from '../../services/api/foursqure_api.js';
 import normalize from '../../services/normalize/normalize';
 import styles from './Asset.module.css';
 
@@ -20,7 +20,7 @@ class Asset extends React.Component {
     //console.log(this.props);
     const { match: { params: { id } } } = this.props;
     
-    axios.get(`${NASA_API_URL}/search?nasa_id=${id}`)
+    axios.get(`${FOURSQUARE_API_URL}/search?id=${id}`)
       .then(response => {
         console.log(response.data);
         const result =  normalize.asset(response.data.collection.items[0]);
