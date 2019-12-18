@@ -1,0 +1,13 @@
+.modal-title {
+   font-size: 21px;
+   font-weight: bold;
+}
+
+.modal-image-wrapper { 
+  margin: 1rem;  
+  background-color: #026aa7;
+  /* background-image: url('../../assets/loader.svg'); */
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+}

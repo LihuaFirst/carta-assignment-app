@@ -17,7 +17,7 @@ class Search extends React.Component {
 
       this.state = {
          location: 'New York',
-         query: 'Restaurant',
+         query: 'vegan restaurant',
          isLoading: true,
          assets: [],
          isModalOpen: false,
@@ -43,7 +43,7 @@ class Search extends React.Component {
 
       axios.get(`${FOURSQUARE_API_URL}&v=${version}&limit=${limit}&near=${location}${query_param}`)
          .then(response => {
-            console.log(response.data.response.venues);
+            //console.log(response.data.response.venues);
             this.setState({ isLoading: false });
             this.setState({ assets: normalize.search(response.data.response.venues) });
          })
