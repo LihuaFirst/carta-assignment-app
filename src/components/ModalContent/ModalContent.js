@@ -22,7 +22,7 @@ const ModalContent = ({ item }) => (
                         </div>
                   </Box>
                   <Box paddingX={1} flex="grow">
-                        <p><strong>Category:</strong>{item.category}</p>
+                        <p><strong>Category:</strong> {item.category}</p>
                         <p><strong>Address:</strong> {item.address}</p>
                   </Box>
             </Box>

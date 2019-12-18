@@ -1,5 +1,5 @@
-# Carta Take Home Assignment
-This project is to build a web application that shows nearby places of interest.
+# Places Pin - "Pinterest" like app for interesting places
+This project is a web application that shows nearby places of interest.
 
 Live Website
 [https://lihua-assignment.netlify.com/](https://lihua-assignment.netlify.com/) (right-click to open in a new tab / window)
@@ -20,9 +20,9 @@ Clone this repo to your local machine, then navigate to the project directory
 -  Run `npm run build` to build the app for production to the build folder.
 
 ## Features
-- Use [Foursquare Developer: Places APIs](https://developer.foursquare.com/docs/) to get a list of places by city and keywords (e.g. restaurant, coffee)
-- Pinterest style cards for each place 
-- Responsive design
+- Search for places by city and keywords (e.g. restaurant, coffee)
+- Use Pinterest style cards for each place 
+- Use Modal to display details
 
 ## Stack
 - Framework: React 16
@@ -30,6 +30,9 @@ Clone this repo to your local machine, then navigate to the project directory
 - Component Library: Pinterest gestalt 
 - API call: Axios
 - CSS Modules
+
+## APIs
+-  [Foursquare Developer: Places APIs](https://developer.foursquare.com/docs/) 
   
 ## To Do
 - Use location services to detect current location
