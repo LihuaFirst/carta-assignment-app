@@ -23,7 +23,7 @@ const HeaderBar = (props) => {
                     </Box>
 
                     <Box padding={3}>
-                        <Heading size="xs" accessibilityLevel={1}>Nearby<br />Places</Heading>
+                        <Heading size="xs" accessibilityLevel={1}>Places API</Heading>
                     </Box>
                     {props.children}
                 </Box>

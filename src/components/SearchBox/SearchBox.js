@@ -18,7 +18,6 @@ class SearchBox extends React.Component {
 
    handleCityChange(e) {
       let input = e.value;
-      console.log(e);
       this.setState({ location: input });
 
       if (input) {
@@ -37,7 +36,7 @@ class SearchBox extends React.Component {
 
       return (
          <Box display="flex" direction="row" alignItems="center">
-            <Box padding={2}>
+            <Box padding={3}>
                <SearchField
                   accessibilityLabel="search by city"
                   id="searchCity"

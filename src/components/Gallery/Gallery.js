@@ -9,6 +9,9 @@ const Gallery = ({ children }) => {
          <GalleryItem
             id={child.id}
             name={child.name}
+            address={child.address}
+            category={child.category}
+            category_icon={child.category_icon}
          />
       </div>
    ));

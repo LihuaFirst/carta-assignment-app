@@ -15,7 +15,7 @@ class Search extends React.Component {
 
       this.state = {
          location: 'Palo Alto',
-         query: 'coffee',
+         query: 'Restaurant',
          assets: [],
          isLoading: true
       };
@@ -29,23 +29,24 @@ class Search extends React.Component {
    }
 
    searchAsset = debounce((location, query) => {
+   //searchAsset = (location, query) => {
       this.setState({ isLoading: true });
+      //console.log(this.state);
 
       const version = formatDate.yyyymmdd(new Date());
-
-      const limit = 50;
-
+      const limit = 50; 
       const query_param = (query) ? '&query='+query :'';
       
       axios.get(`${FOURSQUARE_API_URL}&v=${version}&limit=${limit}&near=${location}${query_param}`)
          .then(response => {
-            //console.log(response);           
+            //console.log(response.data.response.venues);          
             this.setState({ isLoading: false });
             this.setState({ assets: normalize.search(response.data.response.venues) });
          })
          .catch(error => {
             this.setState({ isLoading: false });
          })
+   //}
    }, 500);
 
    onSearchCityChanged(location) {
@@ -69,6 +70,7 @@ class Search extends React.Component {
          }
 
          if (assets.length > 0) {
+            //console.log(assets);
             return (
                <Gallery>
                   {assets}
@@ -90,8 +92,7 @@ class Search extends React.Component {
                   <SearchBox location={location} 
                            query={query}
                            onSearchCityChanged={this.onSearchCityChanged}
-                           onSearchQueryChanged = {this.onSearchQueryChanged}
-                            />
+                           onSearchQueryChanged = {this.onSearchQueryChanged} />
                </HeaderBar>
             </div>
             <div className={styles['search-content']}>
