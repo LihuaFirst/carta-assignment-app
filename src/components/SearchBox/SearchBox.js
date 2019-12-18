@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, SearchField } from "gestalt";
-//import styles from './SearchBox.module.css';
 
 class SearchBox extends React.Component {
    constructor(props) {
